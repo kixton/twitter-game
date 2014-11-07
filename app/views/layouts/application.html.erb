@@ -3,16 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Stocks and Tech</title>
-
+    <title>Twitter Game</title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body ng-app="stockApp">
-
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
