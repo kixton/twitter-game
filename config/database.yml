@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: stocks_development
+  database: twitter_development
   host: localhost
   port: 5432
 
@@ -59,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: stocks_test
+  database: twitter_test
   port: 5432
   host: localhost
 
@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: stocks_production
+  database: twitter_production
   username: stocks
   password: <%= ENV['STOCKS_DATABASE_PASSWORD'] %>

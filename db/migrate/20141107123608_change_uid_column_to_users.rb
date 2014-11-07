@@ -5,5 +5,3 @@ class ChangeUidColumnToUsers < ActiveRecord::Migration
     end
   end
 end
-
-#db not migrated yet
