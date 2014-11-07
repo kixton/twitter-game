@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def create
-    binding.pry
     user = User.get_omniauth_user(omniauth_params: request.env["omniauth.auth"])
     if user.nil?
       redirect_to "/", notice: "Could not log in"

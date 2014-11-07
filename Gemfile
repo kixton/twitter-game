@@ -17,7 +17,7 @@ end
 # gem "omniauth-google-oauth2"
 gem "omniauth-twitter"
 
-gem 'figaro'
+gem 'figaro', github: 'laserlemon/figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
