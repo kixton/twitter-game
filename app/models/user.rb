@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
       last_name: omniauth_params["info"]["last_name"],
       full_name: omniauth_params["info"]["name"],
       image_url: omniauth_params["info"]["image"],
-      google_uid: omniauth_params["uid"],
+      # google_uid: omniauth_params["uid"],
+      twitter_uid: omniauth_params["uid"],
       guest: false
     )
   end

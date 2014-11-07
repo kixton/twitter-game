@@ -14,9 +14,10 @@ group :test, :development do
   gem 'pry-debugger'
 end
 
-gem "omniauth-google-oauth2"
+# gem "omniauth-google-oauth2"
+gem "omniauth-twitter"
 
-gem "figaro"
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
