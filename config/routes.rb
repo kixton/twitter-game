@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
   # get 'auth/google_oauth2/callback' => "sessions#create"
-  get 'auth/twitter/callback' => "sessions#create"
-  # get '/auth/:provider/callback', to: 'sessions#create'
-  # post '/auth/:provider/callback', to: 'sessions#create'
+  # get 'auth/twitter/callback' => "sessions#create"
+  get '/auth/:provider/callback', to: 'sessions#create'
+  post '/auth/:provider/callback', to: 'sessions#create'
 
   get '/logout' => "sessions#destroy"
 

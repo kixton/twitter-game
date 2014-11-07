@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   def self.get_omniauth_user(params={})
     omniauth_params = params[:omniauth_params]
+    binding.pry
     if omniauth_params.nil? || omniauth_params["info"].nil? || omniauth_params["info"]["email"].nil?
       return nil
     end
