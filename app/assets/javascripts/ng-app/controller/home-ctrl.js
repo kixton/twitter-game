@@ -1,6 +1,6 @@
-app.controller('HomeCtrl', ['$scope', 'User', 'SearchFactory',
-  function($scope, User, SearchFactory) {
-    $scope.user = User.currentUser;
+app.controller('HomeCtrl', ['$scope', 'UserFactory', 'SearchFactory',
+  function($scope, UserFactory, SearchFactory) {
+    $scope.user = UserFactory.currentUser;
     $scope.tweets = SearchFactory.getResults;
 }]);
 

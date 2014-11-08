@@ -9,5 +9,5 @@ app.factory('SearchFactory', ['$resource', function($resource){
       });
     },
     getResults: searchRsc.query()
-  }
+  };
 }]);

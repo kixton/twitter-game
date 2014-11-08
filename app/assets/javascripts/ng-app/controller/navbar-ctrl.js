@@ -1,4 +1,4 @@
-app.controller('NavbarCtrl', ['$scope', 'User',
-  function($scope, User) {
-  $scope.user = User.currentUser;
+app.controller('NavbarCtrl', ['$scope', 'UserFactory',
+  function($scope, UserFactory) {
+  $scope.user = UserFactory.currentUser;
 }]);
