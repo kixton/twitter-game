@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/logout' => "sessions#destroy"
 
+  get '/tweets', to: "home#tweets"
+
   scope :api, defaults: {format: :json} do
     get '/current-user' => "users#show"
   end
