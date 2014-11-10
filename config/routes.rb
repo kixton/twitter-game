@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/tweets', to: "home#tweets"
 
+  get '/quizz', to: "home#quizz"
+
   scope :api, defaults: {format: :json} do
     get '/current-user' => "users#show"
   end
