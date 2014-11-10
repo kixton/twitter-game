@@ -16,5 +16,6 @@ class HomeController < ApplicationController
     # binding.pry
     @tweets = @twitter_client.get("https://api.twitter.com/1.1/statuses/user_timeline.json?count=20&user_id=#{current_user.twitter_uid}")
     # @followers = @twitter_client.followers("#{current_user.twitter_uid}")
+    render json: @tweets
   end
 end

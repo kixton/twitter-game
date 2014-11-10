@@ -7,6 +7,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       url: '/',
       templateUrl: "home.html",
       controller: 'HomeCtrl'
+    })
+    .state('tweets', {
+      url: '/tweets',
+      templateUrl: "tweets.html",
+      controller: "HomeCtrl"
     });
   $urlRouterProvider.otherwise('/');
 }]);
