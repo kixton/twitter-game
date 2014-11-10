@@ -1,5 +1,6 @@
-app.controller('HomeCtrl', ['$scope', 'UserFactory', 'SearchFactory',
-  function($scope, UserFactory, SearchFactory) {
+app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TwitterFactory',
+  function($scope, UserFactory, TwitterFactory) {
     $scope.user = UserFactory.currentUser;
+    $scope.tweets = TwitterFactory.tweets;
 }]);
 
