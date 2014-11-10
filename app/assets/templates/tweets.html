@@ -1,3 +1,13 @@
-<div ng-repeat="tweet in test">
-<p>{{tweet}}</p>
+<div ng-repeat="tweet in tweetData">
+<p>{{tweet.text}}--{{tweet.entities.hashtags}}</p>
 </div>
+
+<div>{{friendData}}</div>
+
+<!-- <div class="standalone-tweet">
+  <blockquote>
+    <header></header>
+    <main class="content"></main>
+    <footer></footer>
+  </blockquote>
+</div> -->

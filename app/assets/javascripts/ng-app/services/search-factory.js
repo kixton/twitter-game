@@ -1,8 +1,9 @@
 app.factory('SearchFactory', ['$resource', function($resource){
   var searchRsc = $resource("/tweets");
-  var searchResults = {};
+  var friendRsc = $resource("/friends");
 
   return {
-    getResults: searchRsc
+    getResults: searchRsc,
+    getFriends: friendRsc
   };
 }]);
