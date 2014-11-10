@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   post '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/logout' => "sessions#destroy"
+  get '/logout', to: "sessions#destroy"
 
   get '/tweets', to: "home#tweets"
 
   scope :api, defaults: {format: :json} do
-    get '/current-user' => "users#show"
+    get '/current-user', to: "users#show"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
