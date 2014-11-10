@@ -1,9 +1,6 @@
-<div ng-repeat="tweet in tweetData">
-<p>{{tweet.text}}--{{tweet.entities.hashtags}}</p>
+<div ng-repeat="(key, value) in tweets">
+<p>{{key}}</p>
 </div>
-
-<div>{{friendData}}</div>
-
 <!-- <div class="standalone-tweet">
   <blockquote>
     <header></header>

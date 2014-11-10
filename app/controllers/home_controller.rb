@@ -11,8 +11,12 @@ class HomeController < ApplicationController
 
   def tweets
     @twitter_client = self.make_twitter_client
-    @tweets = @twitter_client.get("https://api.twitter.com/1.1/statuses/user_timeline.json?count=20&user_id=#{current_user.twitter_uid}")
-    render json: @tweets
+    @friends = @twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=4&user_id=#{current_user.twitter_uid}")
+    @user_tweets = {}
+    @friends[:users].each do |friend|
+      @user_tweets[friend[:screen_name]] = friend[:status][:text]
+    end 
+    render json: @user_tweets
   end
 
   def friends
