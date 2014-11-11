@@ -11,13 +11,12 @@ class HomeController < ApplicationController
 
   def tweets
     @twitter_client = self.make_twitter_client
-    @friends = @twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=4&user_id=#{current_user.twitter_uid}")
-    @user_tweets = []
+    @friends = @twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=8&user_id=#{current_user.twitter_uid}")
+    @tweet_bank = []
     @friends[:users].each do |friend|
-      @user_tweets << {:name => friend[:screen_name],
-        :last_tweet => friend[:status][:text]
-      }
+      @tweet_bank << {:name => friend[:screen_name], :last_tweet => friend[:status][:text]}
     end 
+    @user_tweets = @tweet_bank.shuffle
     render json: @user_tweets
   end
 

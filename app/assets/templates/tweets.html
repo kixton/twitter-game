@@ -1,15 +1,21 @@
-<p>Who Tweeted This?!?!</p>
-  <div>
-    {{ tweets[randNum].last_tweet }}
+<div class="large-12 columns">
+  <div class="row">
+  <p>Who Tweeted This?!?!</p>
+    <div>
+      {{ displayedTweet.last_tweet }}
+    </div>
   </div>
-<p>Choices</p>
-<div ng-repeat="tweet in tweets">
-  <button ng-click="checkAnswer(tweet)" ng-value="tweet.name">{{tweet.name}}</button>
+
+  <div class="row">
+    <p>Choices</p>
+      <div ng-repeat="tweet in tweets | limitTo:4">
+        <button ng-click="checkAnswer(tweet)">{{tweet.name}}</button>
+      </div>
+  </div>
+
+  <div class="row">
+    <div ng-show='showCorrectAnswer'>
+      <p>Your answer was {{response}}!!</p>
+    </div>
+  </div>
 </div>
-<!-- <div class="standalone-tweet">
-  <blockquote>
-    <header></header>
-    <main class="content"></main>
-    <footer></footer>
-  </blockquote>
-</div> -->

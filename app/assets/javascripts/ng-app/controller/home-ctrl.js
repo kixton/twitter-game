@@ -1,18 +1,28 @@
-app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory',
-  function($scope, UserFactory, TweetFactory) {
+app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout',
+  function($scope, UserFactory, TweetFactory, $timeout) {
+    $scope.showCorrectAnswer = false
     $scope.user = UserFactory.currentUser;
-    $scope.tweets = TweetFactory.getResults;
-    $scope.randNum = Math.floor(Math.random() * 4)
-    // $scope.userNames = TweetFactory.userNames;
+    TweetFactory.getResults.$promise.then(function(data){
+      $scope.displayedTweet = data[TweetFactory.number];
+      $scope.tweets = data;
+    });
+    $scope.correctAnswers = 0
     $scope.checkAnswer = function(answer) {
-      var correctAnswer = this.tweets[this.randNum].name;
-      
-      if (correctAnswer === answer.name) {
-        console.log("correct");
+      if (answer === $scope.displayedTweet) {
+        $scope.correctAnswers += 1;
+        $scope.showCorrectAnswer = true;
+        $scope.response = "Correct"
       } else {
-        console.log("incorrect");
+        $scope.showCorrectAnswer = true;
+        $scope.response = "Incorrect"
       }
-      //load next question
-    }
+      $scope.nextQuestion();
+    };
+    $scope.nextQuestion = function() {
+      $timeout(function(){
+        $scope.showCorrectAnswer = false;
+        ($scope.tweets).splice(0,4);
+        $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
+      }, 5000);
+    };
 }]);
-
