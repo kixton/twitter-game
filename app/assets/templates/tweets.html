@@ -1,5 +1,10 @@
+<p>Who Tweeted This?!?!</p>
+  <div>
+    {{ tweets[randNum].last_tweet }}
+  </div>
+<p>Choices</p>
 <div ng-repeat="tweet in tweets">
-<p>{{tweet.name}}</p>
+  <button ng-click="checkAnswer()" ng-value="tweet.name">{{tweet.name}}</button>
 </div>
 <!-- <div class="standalone-tweet">
   <blockquote>
