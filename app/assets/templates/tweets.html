@@ -1,3 +1,9 @@
-<div ng-repeat="(key, value) in tweets">
-<p>{{key}}</p>
+
+<p>Who Tweeted This?!?!</p>
+  <div>
+    {{ tweets[randNum].last_tweet }}
+  </div>
+<p>Choices</p>
+<div ng-repeat="tweet in tweets">
+  <button ng-click="checkAnswer()" ng-value="tweet.name">{{tweet.name}}</button>
 </div>
