@@ -1,15 +1,20 @@
 app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory',
   function($scope, UserFactory, TweetFactory) {
+    $scope.showCorrectAnswer = false
     $scope.user = UserFactory.currentUser;
     TweetFactory.getResults.$promise.then(function(data){
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
     });
+    $scope.correctAnswers = 0
     $scope.checkAnswer = function(answer) {
       if (answer === $scope.displayedTweet) {
-        console.log("THAT'S RIGHT")
+        $scope.correctAnswers += 1;
+        $scope.showCorrectAnswer = true;
+        $scope.response = "Correct"
       } else {
-        console.log("NOOOO!!!")
+        $scope.showCorrectAnswer = true;
+        $scope.response = "Incorrect"
       }
     }
 }]);
