@@ -8,7 +8,7 @@
 
   <div class="row">
     <p>Choices</p>
-      <div ng-repeat="tweet in tweets">
+      <div ng-repeat="tweet in tweets | limitTo:4">
         <button ng-click="checkAnswer(tweet)">{{tweet.name}}</button>
       </div>
   </div>

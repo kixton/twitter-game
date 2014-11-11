@@ -18,4 +18,3 @@ app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory',
       }
     }
 }]);
-
