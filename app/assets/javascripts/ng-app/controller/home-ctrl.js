@@ -1,5 +1,5 @@
-app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory',
-  function($scope, UserFactory, TweetFactory) {
+app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout',
+  function($scope, UserFactory, TweetFactory, $timeout) {
     $scope.showCorrectAnswer = false
     $scope.user = UserFactory.currentUser;
     TweetFactory.getResults.$promise.then(function(data){
@@ -16,5 +16,13 @@ app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory',
         $scope.showCorrectAnswer = true;
         $scope.response = "Incorrect"
       }
-    }
+      $scope.nextQuestion();
+    };
+    $scope.nextQuestion = function() {
+      $timeout(function(){
+        $scope.showCorrectAnswer = false;
+        ($scope.tweets).splice(0,4);
+        $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
+      }, 5000);
+    };
 }]);
