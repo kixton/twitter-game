@@ -14,9 +14,7 @@ class HomeController < ApplicationController
     @friends = @twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=4&user_id=#{current_user.twitter_uid}")
     @user_tweets = []
     @friends[:users].each do |friend|
-      @user_tweets << {:name => friend[:screen_name],
-        :last_tweet => friend[:status][:text]
-      }
+      @user_tweets << {:name => friend[:screen_name], :last_tweet => friend[:status][:text]}
     end 
     render json: @user_tweets
   end
