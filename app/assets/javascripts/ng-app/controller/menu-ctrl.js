@@ -1,7 +1,4 @@
-app.controller('MenuCtrl', ['$scope', '$location',
-  function($scope, $location) {
-    $scope.startGame = function() {
-      $location.path('/tweets')
-      console.log("wtf");
-    };
+app.controller('MenuCtrl', ['$scope', '$location', "GameFactory",
+  function($scope, $location, GameFactory) {
+    $scope.startGame = GameFactory.startGame
 }]);

@@ -1,6 +1,12 @@
-app.controller('TweetCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout', '$location',
-  function($scope, UserFactory, TweetFactory, $timeout, $location) {
+app.controller('TweetCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout', '$location', 'GameFactory',
+  function($scope, UserFactory, TweetFactory, $timeout, $location, GameFactory) {
     $scope.showCorrectAnswer = false
+    $scope.score = true
+
+    $scope.startGame = function() {
+      GameFactory.startGame;
+      $scope.score = true;
+    };
     TweetFactory.getResults.$promise.then(function(data){
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
@@ -21,6 +27,10 @@ app.controller('TweetCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout'
       $timeout(function(){
         $scope.showCorrectAnswer = false;
         ($scope.tweets).splice(0,4);
+        console.log($scope.tweets.length)
+        if ($scope.tweets.length === 0) {
+          $scope.score = false
+        }
         $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
       }, 2000);
     };
