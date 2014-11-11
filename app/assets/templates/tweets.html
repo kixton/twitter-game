@@ -4,7 +4,7 @@
   </div>
 <p>Choices</p>
 <div ng-repeat="tweet in tweets">
-  <button ng-click="checkAnswer()" ng-value="tweet.name">{{tweet.name}}</button>
+  <button ng-click="checkAnswer(tweet)" ng-value="tweet.name">{{tweet.name}}</button>
 </div>
 <!-- <div class="standalone-tweet">
   <blockquote>

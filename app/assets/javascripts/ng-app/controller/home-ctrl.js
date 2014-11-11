@@ -2,17 +2,17 @@ app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory',
   function($scope, UserFactory, TweetFactory) {
     $scope.user = UserFactory.currentUser;
     $scope.tweets = TweetFactory.getResults;
-    $scope.randNum = Math.floor(Math.random() * 3)
+    $scope.randNum = Math.floor(Math.random() * 4)
     // $scope.userNames = TweetFactory.userNames;
-    $scope.checkAnswer = function(this) {
-      console.log(this);
-      console.log(this.tweet.last_tweet);
-      // console.log($scope.tweets)
-      if (guessAnswer === correctAnswer) {
-        console.log("correct")
+    $scope.checkAnswer = function(answer) {
+      var correctAnswer = this.tweets[this.randNum].name;
+      
+      if (correctAnswer === answer.name) {
+        console.log("correct");
       } else {
-        console.log("incorrect")
+        console.log("incorrect");
       }
+      //load next question
     }
 }]);
 
