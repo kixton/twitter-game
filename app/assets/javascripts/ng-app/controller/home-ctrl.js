@@ -1,28 +1,15 @@
-app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout',
-  function($scope, UserFactory, TweetFactory, $timeout) {
-    $scope.showCorrectAnswer = false
+app.controller('HomeCtrl', ['$scope', 'UserFactory', 'TweetFactory', '$timeout', '$location',
+  function($scope, UserFactory, TweetFactory, $timeout, $location) {
+    
     $scope.user = UserFactory.currentUser;
-    TweetFactory.getResults.$promise.then(function(data){
-      $scope.displayedTweet = data[TweetFactory.number];
-      $scope.tweets = data;
-    });
-    $scope.correctAnswers = 0
-    $scope.checkAnswer = function(answer) {
-      if (answer === $scope.displayedTweet) {
-        $scope.correctAnswers += 1;
-        $scope.showCorrectAnswer = true;
-        $scope.response = "Correct"
+    $scope.user.$promise.then(function(data) {
+      $scope.twitter_uid = data.twitter_uid
+      if ($scope.twitter_uid === null) {
+        $location.path('/')
       } else {
-        $scope.showCorrectAnswer = true;
-        $scope.response = "Incorrect"
+        $location.path('/menu')
       }
-      $scope.nextQuestion();
-    };
-    $scope.nextQuestion = function() {
-      $timeout(function(){
-        $scope.showCorrectAnswer = false;
-        ($scope.tweets).splice(0,4);
-        $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
-      }, 5000);
-    };
+    });
+    
+
 }]);

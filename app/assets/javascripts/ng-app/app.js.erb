@@ -8,10 +8,15 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       templateUrl: "home.html",
       controller: 'HomeCtrl'
     })
+    .state('menu', {
+      url: '/menu',
+      templateUrl: "menu.html",
+      controller: "MenuCtrl"
+    })
     .state('tweets', {
       url: '/tweets',
       templateUrl: "tweets.html",
-      controller: "HomeCtrl"
+      controller: "TweetCtrl"
     });
   $urlRouterProvider.otherwise('/');
 }]);
