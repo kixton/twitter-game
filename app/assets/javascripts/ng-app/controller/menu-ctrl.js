@@ -1,4 +1,4 @@
-app.controller('MenuCtrl', ['$scope', '$location', "GameFactory",
-  function($scope, $location, GameFactory) {
+app.controller('MenuCtrl', ['$scope', "GameFactory",
+  function($scope, GameFactory) {
     $scope.startGame = GameFactory.startGame
 }]);
