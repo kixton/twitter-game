@@ -1,5 +1,5 @@
 <div class="large-12 columns">
-  <div ng-show="score">
+  <div ng-show="showScore">
     <div class="row">
       <p>Who Tweeted This?!?!</p>
       <div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div ng-hide="score">
+  <div ng-hide="showScore">
     Your score is: {{correctAnswers}}
     <button ng-click="startGame()">New Game</button>
   </div>
