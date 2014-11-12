@@ -2,6 +2,7 @@ app.factory('GameFactory', ['$resource', '$location', function($resource, $locat
   return {
     startGame: function() {
       $location.path('/tweets')
-    }
+    },
+    getTheTweets: $resource("/tweets")
   };
 }]);
