@@ -8,9 +8,6 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
       $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
       console.log($scope.tweetToEmbed);
     });
-    // TweetFactory.embed.$promise.then(function(data){
-    //   $scope.embedtweet = $sce.trustAsHtml(data.html);
-    // })
     $scope.correctAnswers = 0;
     $scope.checkAnswer = function(answer) {
       if (answer === $scope.displayedTweet) {
