@@ -2,11 +2,12 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
   function($scope, $timeout, $location, $sce, UserFactory, TweetFactory, GameFactory) {
     $scope.showCorrectAnswer = false;
     $scope.showScore = true;
-    TweetFactory.getResults.$promise.then(function(data){
+    var handleResults = function(data){
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
       $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
-    });
+    }
+    TweetFactory.getResults.$promise.then(handleResults);
     $scope.correctAnswers = 0;
     $scope.checkAnswer = function(answer) {
       if (answer === $scope.displayedTweet) {
