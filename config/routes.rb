@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/scores', to: "scores#index"
+
+  get 'scores/:id', to: "scores#show"
+
   root 'home#index'
   # get 'auth/google_oauth2/callback' => "sessions#create"
   # get 'auth/twitter/callback' => "sessions#create"

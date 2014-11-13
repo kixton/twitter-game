@@ -14,9 +14,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat=''>
-        <tr>{{name}}</tr>
-        <tr>{{score}}</tr>
+      <tr ng-repeat='score in scores'>
+        <td>{{score.user}}</td>
+        <td>{{score.scores}}</td>
       </tr>
     </tbody>
   </table>

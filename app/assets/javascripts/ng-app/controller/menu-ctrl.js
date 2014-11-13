@@ -1,8 +1,12 @@
-app.controller('MenuCtrl', ['$scope', "GameFactory",
-  function($scope, GameFactory) {
+app.controller('MenuCtrl', ['$scope', "GameFactory", "ScoreFactory",
+  function($scope, GameFactory, ScoreFactory) {
     $scope.startGame = GameFactory.startGame
     $scope.view = true
-    $scope.scores
+    ScoreFactory.allScores.query().$promise.then(function(data) {
+      $scope.scores = data
+      console.log($scope.scores)
+    });
+
     $scope.showHighScore = function() {
       $scope.view = false;
     };
