@@ -16,17 +16,16 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
       $scope.showScore = true;
     };
     TweetFactory.getResults.$promise.then(handleResults);
-    $scope.checkAnswer = function(answer, event) {
+    $scope.checkAnswer = function(answerSelected, clickEvent) {
       $scope.theAnswer = $scope.displayedTweet
-      if (answer === $scope.displayedTweet) {
+      if (answerSelected === $scope.theAnswer) {
         $scope.correctAnswers += 1;
         $scope.response = "Correct"
         $scope.showCorrectAnswer = true;
       } else {
         $scope.showCorrectAnswer = true;
         $scope.response = "Incorrect"
-        event.target.classList.addIncorrectClass
-        event.target.classList.add("incorrect")
+        ClassFactory.addIncorrectClass(clickEvent.target.classList)
       }
       $scope.nextQuestion();
     };

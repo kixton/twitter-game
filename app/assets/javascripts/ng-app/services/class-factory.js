@@ -1,7 +1,7 @@
 app.factory('ClassFactory', function() {
   return {
-    addIncorrectClass: function() {
-      this.add("incorrect")
+    addIncorrectClass: function(array) {
+      array.add("incorrect")
     }
   };
 });
