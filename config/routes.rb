@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/logout', to: "sessions#destroy"
 
   get '/tweets', to: "home#tweets"
+
+  get '/embed', to: "home#embed"
   
   scope :api, defaults: {format: :json} do
     get '/current-user', to: "users#show"
