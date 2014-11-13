@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :scores
   def self.get_omniauth_user(params={})
     omniauth_params = params[:omniauth_params]
     if omniauth_params.nil? || omniauth_params["info"].nil? 
