@@ -11,20 +11,45 @@
 </div>
 
 <div ng-hide='view'>
-  <h3>Top 10 High-Scores</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>User Name</th>
-        <th>High Score</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10">
-        <td>{{score.user}}</td>
-        <td>{{score.scores}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <button ng-click='showMenu()'>Back</button>
+  <div class="row">
+    <div class="large-6 columns">
+      <h3>Top 10 High-Scores All Users</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>High Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10">
+            <td>{{score.user}}</td>
+            <td>{{score.scores}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="large-6 columns">
+      <h3>Top 10 High-Scores {{currentUser.full_name}}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>High Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10 | filter: {user: currentUser.full_name}">
+            <td>{{score.user}}</td>
+            <td>{{score.scores}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+  <div class='row'>
+    <button ng-click='showMenu()'>Back</button>
+    <button ng-click='showGraph()'>Show Graph</button>
+  </div>
 </div>
+    
