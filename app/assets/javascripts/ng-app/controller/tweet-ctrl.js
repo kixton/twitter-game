@@ -5,16 +5,11 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
     $scope.theAnswer
     $scope.buttonClass
     $scope.correctAnswers = 0
-
     var handleResults = function(data){
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
       $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
     }
-    $scope.startGame = function() {
-      GameFactory.startGame;
-      $scope.showScore = true;
-    };
     TweetFactory.getResults.$promise.then(handleResults);
     $scope.checkAnswer = function(answerSelected, clickEvent) {
       $scope.theAnswer = $scope.displayedTweet
@@ -38,7 +33,7 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
         }
         $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
         $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
-      }, 5000);
+      }, 1000);
     };
     $scope.startGame = function() {
       $scope.correctAnswers = 0;
