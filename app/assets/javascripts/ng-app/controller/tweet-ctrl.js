@@ -6,7 +6,6 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
       $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
-      console.log($scope.tweetToEmbed);
     });
     $scope.correctAnswers = 0;
     $scope.checkAnswer = function(answer) {

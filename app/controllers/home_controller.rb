@@ -28,10 +28,10 @@ class HomeController < ApplicationController
     render json: @user_tweets
   end
 
-  def embed(ids)
+  def embed(ids_array)
     @twitter_client = self.make_twitter_client
     @embeddable = [] 
-    ids.each do |id|
+    ids_array.each do |id|
       @embeddable << @twitter_client.get('https://api.twitter.com/1.1/statuses/oembed.json?align=left&id='+id)
     end
     return @embeddable
