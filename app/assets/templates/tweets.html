@@ -1,24 +1,43 @@
-<div class="large-12 columns">
+<div class="large-8 large-offset-2 columns">
   <div ng-show="showScore">
     <div class="row">
-      <p>Who Tweeted This?!?!</p>
-      <div>
-        {{ displayedTweet.last_tweet }}
-      </div>
-    </div>
-
-    <div class="row">
-      <p>Choices</p>
-        <div ng-repeat="tweet in tweets | limitTo:4">
-          <button ng-click="checkAnswer(tweet)">{{tweet.name}}</button>
+      <div class="tweet-container">
+        <div class="tweet-header">
+          <img class="anon-avatar" src="http://www.mediabistro.com/alltwitter/files/2010/12/palkoo-twitter-avatar.png">
+          <div class="tweet-author">
+            <span class="author-name">Who tweeted that?</span>
+            <span class="author-screename">@guess_who_tweeted_that</span>
+          </div>
         </div>
+        <div class="tweet-quote">
+          <p class="quote">{{ displayedTweet.last_tweet }}</p>
+          <p class="time-date">2:20 PM - 12 Nov 2014</p>
+        </div>
+        <div class="tweet-footer">
+          <span class="retweets"><b>10</b> RETWEETS</span>
+          <span class="favorites"><b>0</b> FAVORITES</span>
+        </div>
+      </div>
+
+      <!-- <blockquote class="twitter-tweet" lang="en">
+        <p>The &quot;http://&quot; at the beginning of URLs is a command to the browser. It stands for &quot;head to this place:&quot; followed by two laser-gun noises.</p>&mdash; Brian Sutorius (@bsuto) 
+        
+        <a href="https://twitter.com/bsuto/status/172070369035956224">February 21, 2012</a>
+      </blockquote>
+      <script async src="http://platform.twitter.com/widgets.js" charset="utf-8">
+      </script> -->
+
+    <div class="answers-container">
+      <button class="choices" ng-class="{'correct' : theAnswer === tweet}" ng-repeat="tweet in tweets | limitTo:4" ng-click="checkAnswer(tweet, $event)">
+        @{{tweet.name}}
+      </button>
     </div>
 
 
     <div class="row">
       <div ng-show='showCorrectAnswer'>
-        <p>Your answer was {{response}}!!</p>
-        <p>The correct answer is {{displayedTweet.name}}!!</p>
+        <!-- <p>Your answer was {{response}}!!</p>
+        <p>The correct answer is {{displayedTweet.name}}!!</p> -->
         <div class="row">
           <div ng-bind-html="tweetToEmbed">
           </div>

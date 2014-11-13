@@ -5,7 +5,6 @@ app.controller('MenuCtrl', ['$scope', "GameFactory", "ScoreFactory",
     ScoreFactory.allScores.query().$promise.then(function(data) {
       $scope.scores = data
     });
-
     $scope.showHighScore = function() {
       $scope.view = false;
     };

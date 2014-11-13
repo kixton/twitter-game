@@ -1,22 +1,32 @@
-app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFactory', 'TweetFactory', 'GameFactory',
-  function($scope, $timeout, $location, $sce, UserFactory, TweetFactory, GameFactory) {
-    $scope.showCorrectAnswer = false;
-    $scope.showScore = true;
+app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFactory', 'TweetFactory', 'GameFactory', 'ClassFactory',
+  function($scope, $timeout, $location, $sce, UserFactory, TweetFactory, GameFactory, ClassFactory) {
+    $scope.showCorrectAnswer = false
+    $scope.showScore = true
+    $scope.theAnswer
+    $scope.buttonClass
+    $scope.correctAnswers = 0
+
     var handleResults = function(data){
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
       $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
     }
+    $scope.startGame = function() {
+      GameFactory.startGame;
+      $scope.showScore = true;
+    };
     TweetFactory.getResults.$promise.then(handleResults);
-    $scope.correctAnswers = 0;
-    $scope.checkAnswer = function(answer) {
+    $scope.checkAnswer = function(answer, event) {
+      $scope.theAnswer = $scope.displayedTweet
       if (answer === $scope.displayedTweet) {
         $scope.correctAnswers += 1;
+        $scope.response = "Correct"
         $scope.showCorrectAnswer = true;
-        $scope.response = "Correct";
       } else {
         $scope.showCorrectAnswer = true;
-        $scope.response = "Incorrect";
+        $scope.response = "Incorrect"
+        event.target.classList.addIncorrectClass
+        event.target.classList.add("incorrect")
       }
       $scope.nextQuestion();
     };
@@ -41,4 +51,5 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
       GameFactory.startGame;
       $scope.showScore = true;
     };
-}]);
+  }
+]);

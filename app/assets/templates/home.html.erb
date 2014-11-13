@@ -1,9 +1,12 @@
 <div class="row">
   <div class="large-6 large-offset-3 columns">
-    <div class="signup-panel">
-      <p class="welcome">Welcome {{user.first_name}}</p>
-      <a href="/auth/twitter" class="button" ng-click="getTweets()">Log-in via Twitter</a>
-       <p>Don't have an account yet? <a href="#">Sign up here &raquo</a></p>
+    <div class="panel">
+      <h2>Welcome {{user.first_name}}</h2>
+      <a href="/auth/twitter" class="button large" ng-click="getTweets()">
+        <i class="fa fa-twitter"></i>
+        Login via Twitter
+      </a>
+       <p>Don't have an account yet? <i><a href="https://twitter.com/signup">Sign up here &raquo</a></i></p>
     </div>
   </div>
 </div>  

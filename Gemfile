@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'foundation-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 gem 'rails_12factor', group: :production
 

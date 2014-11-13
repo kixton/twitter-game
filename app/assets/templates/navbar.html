@@ -1,12 +1,20 @@
 <nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name"><h1><a href="/">Tweeter Quizz</a></h1></li>
+  <a href="/">
+  <img class="logo" src="http://www.mediabistro.com/alltwitter/files/2010/12/palkoo-twitter-avatar.png">
+    <div class="bubble-container">
+      <div class="bubble">
+        <span class="header-quote">Who tweeted that?</span>
+      </div>
+    </div>
+  </a>
+  <ul class="right login-logout">
+    <li ng-show="user.guest">
+      <a href="/auth/twitter" class="login button">LOGIN</a>
+    </li>
+    <li ng-hide="user.guest">
+      <img ng-src={{user.image_url}} class="avatar">
+      <a href="/logout" class="logout button">LOGOUT</a>
+    </li>
   </ul>
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="active"><a href="#">Home</a></li>
-      <li ng-show="user.guest"><a href="/auth/twitter">Log In</a></li>
-      <li ng-hide="user.guest"><a href="/logout">Log Out {{user.first_name}}</a></li>
-    </ul>
-  </section>
+
 </nav>

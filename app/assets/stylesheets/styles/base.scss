@@ -1,0 +1,222 @@
+a {
+  color: #000;
+  &:hover {
+    color: #999;
+  }
+}
+
+nav.top-bar {
+  background: #ddd;
+  height: 60px;
+  padding: 0;
+  .logo {
+    height: 50px;
+    margin: 5px;
+  }
+  .name {
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 5px 10px;
+    &:hover {
+      color: #000;
+      font-weight: bold;
+    }
+  }
+  .avatar {
+    border-radius: 100%;
+    height: 35px;
+    margin-top: 12px;
+  }
+}
+
+.button,
+button {
+  border-radius: .2em;
+  background: #18B4F6;
+  display: inline-block;
+  a {
+    color: #fff;
+  }
+  &:hover {
+    background: #0d88e5;
+  }
+  &.login,
+  &.logout {
+    font-size: .8em;
+    padding: 7px 12px;
+    margin: 7px 15px 7px 0;
+    min-width: 80px;
+  }
+  &.logout {
+    background: #999;
+    color: #eee;
+    &:hover {
+      background: #888;
+    }
+  }
+  &.correct {
+    background: #4CAF50;
+  }
+  &.incorrect {
+    background: #F44336;
+  }
+}
+
+.panel {
+  border-radius: .5em;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-top: 30px;
+  text-align: center;
+  h2 {
+    font-size: 2em;
+  }
+}
+
+.row {
+  text-align: center;
+}
+
+.tweet-container {
+  text-align: left;
+  display: inline-block;
+  padding: 16px;
+  margin: 10px 0;
+  width: 500px;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font-family: Helvetica, Arial, sans-serif;
+  color: #000;
+  .tweet-header {
+    margin-bottom: 5px;
+    .anon-avatar {
+      height: 45px;
+      border-radius: 4px;
+      vertical-align: top;
+    }
+    .tweet-author {
+      display: inline-block;
+      .author-name {
+        font-weight: bold;
+        display: block;
+        margin-bottom: -5px;
+      }
+      .author-screename {
+        color: #707070;
+        font-size: 13px;
+      }
+    }
+  }
+  .tweet-quote {
+    font-size: 20px;
+    line-height: 24px;
+    .quote {
+      margin-bottom: 5px;
+    }
+    .time-date {
+      color: #707070;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  }
+  .tweet-footer {
+    border: 1px solid #e8e8e8;
+    border-width: 1px 0 0;
+    color: #707070;
+    font-size: 10px;
+    padding-top: 10px;
+    b {
+      color: #66757f;
+      font-size: 12px;
+    }
+    .favorites {
+      margin-left: 5px;
+    }
+  }
+}
+
+.answers-container {
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  .choices {
+    width: 45%;
+    margin: 10px;
+  }
+}
+
+.bubble-container {
+  display: inline-block;
+  padding-bottom: 0px;
+  vertical-align: middle;
+  .bubble {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+    height: 35px;
+    padding: 0px;
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: #ddd 1px solid;
+    border-top-color: #eee;
+    border-bottom-color: #bbb;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    line-height: 30px;
+    .header-quote {
+      margin-left: 10px;
+    }
+  }
+
+  .bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 9px 13px 9px 0;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: -9px;
+    top: 10px;
+  }
+}
+
+@media only screen and (max-width: 35em) {
+  .top-bar {
+    .bubble-container,
+    .avatar {
+      display: none;
+    }
+  }
+  .tweet-container {
+    width: 100%;
+  }
+  .answers-container {
+    .choices {
+      width: 45%;
+      margin: 5px;
+      padding: 15px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  nav.top-bar {
+    .avatar {
+      margin-top: -4px;
+      margin-right: 4px;
+    }
+  }
+  .top-bar {
+    .login,
+    .logout {
+      margin-top: 15px;
+    }
+  }
+}

@@ -1,7 +1,13 @@
 <div ng-show='view'>
-  <h3>Welcome {{user.first_name}}</h3>
-  <button ng-click="startGame()">Start Game</button>
-  <button ng-click="showHighScore()">Show High-Score</button>
+  <div class="row">
+    <div class="large-8 large-offset-2 columns">
+      <div class="panel">
+        <h3>Welcome {{user.first_name}}</h3>
+        <a ng-click="startGame()" class="button large">Start Game</a>
+        <button ng-click="showHighScore()">Show High-Score</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div ng-hide='view'>
