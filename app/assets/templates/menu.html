@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat='score in scores'>
+      <tr ng-repeat="score in scores | orderBy: '-scores'">
         <td>{{score.user}}</td>
         <td>{{score.scores}}</td>
       </tr>
