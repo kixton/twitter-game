@@ -5,7 +5,7 @@
 </div>
 
 <div ng-hide='view'>
-  <h3>Top 10 Scores of all-time</h3>
+  <h3>Top 10 High-Scores</h3>
   <table>
     <thead>
       <tr>
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="score in scores | orderBy: '-scores'">
+      <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10">
         <td>{{score.user}}</td>
         <td>{{score.scores}}</td>
       </tr>
