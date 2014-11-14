@@ -1,10 +1,10 @@
-app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFactory', 'TweetFactory', 'GameFactory', 'ClassFactory',
-  function($scope, $timeout, $location, $sce, UserFactory, TweetFactory, GameFactory, ClassFactory) {
-    $scope.showCorrectAnswer = false
-    $scope.showScore = true
-    $scope.theAnswer
-    $scope.buttonClass
-    $scope.correctAnswers = 0
+app.controller('TweetCtrl', ['$scope', '$location', '$sce', 'UserFactory', 'TweetFactory', 'GameFactory', 'ClassFactory',
+  function($scope, $location, $sce, UserFactory, TweetFactory, GameFactory, ClassFactory) {
+    $scope.showCorrectAnswer = false;
+    $scope.showScore = true;
+    $scope.theAnswer;
+    $scope.buttonClass;
+    $scope.correctAnswers = 0;
     var handleResults = function(data){
       $scope.displayedTweet = data[TweetFactory.number];
       $scope.tweets = data;
@@ -12,20 +12,17 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
     }
     TweetFactory.getResults.$promise.then(handleResults);
     $scope.checkAnswer = function(answerSelected, clickEvent) {
-      $scope.theAnswer = $scope.displayedTweet
+      $scope.theAnswer = $scope.displayedTweet;
+      $scope.showCorrectAnswer = true;
       if (answerSelected === $scope.theAnswer) {
         $scope.correctAnswers += 1;
-        $scope.response = "Correct"
-        $scope.showCorrectAnswer = true;
+        $scope.response = "Correct";
       } else {
-        $scope.showCorrectAnswer = true;
-        $scope.response = "Incorrect"
-        ClassFactory.addIncorrectClass(clickEvent.target.classList)
+        $scope.response = "Incorrect";
+        ClassFactory.addIncorrectClass(clickEvent.target.classList);
       }
-      $scope.nextQuestion();
     };
     $scope.nextQuestion = function() {
-      $timeout(function(){
         $scope.showCorrectAnswer = false;
         ($scope.tweets).splice(0,4);
         if ($scope.tweets.length === 0) {
@@ -33,7 +30,6 @@ app.controller('TweetCtrl', ['$scope', '$timeout', '$location', '$sce', 'UserFac
         }
         $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
         $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
-      }, 1000);
     };
     $scope.startGame = function() {
       $scope.correctAnswers = 0;
