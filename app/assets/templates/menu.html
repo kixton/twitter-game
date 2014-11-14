@@ -23,7 +23,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10">
-            <td>{{score.user}}</td>
+            <td>{{score.user.full_name}}</td>
             <td>{{score.scores}}</td>
           </tr>
         </tbody>
@@ -39,8 +39,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10 | filter: {user: currentUser.full_name}">
-            <td>{{score.user}}</td>
+          <tr ng-repeat="score in scores | orderBy: '-scores' | limitTo: 10 | filter: {user: currentUser.twitter_uid}">
+            <td>{{score.user.full_name}}</td>
             <td>{{score.scores}}</td>
           </tr>
         </tbody>

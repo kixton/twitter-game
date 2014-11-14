@@ -20,6 +20,7 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require highcharts-ng
+//= require underscore
 //= require_tree ../templates/
 //= require_tree .
 
