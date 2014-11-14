@@ -37,16 +37,11 @@ app.controller('ChartCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFacto
     $scope.getScoreSeries = function() {
       ScoreFactory.allScores.query().$promise.then(function(data) {
         $scope.scores = data
-        var score_arr = this.scores.map(pullScores(el))
+        _.map(this.scores, function(value, key){ 
+            $scope.chartConfig.series.data.push(value)
+          });
       });
     };
-
-    $scope.pullScores = function(object) {
-      return object.scores if object.scores
-    };
-
-    // _.map({one: 1, two: 2, three: 3}, function(num, key){ return num * 3; });
-
 
     $scope.chartConfig = {
         options: {
@@ -58,7 +53,7 @@ app.controller('ChartCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFacto
             data: [10, 15, 12, 8, 7]
         }],
         title: {
-            text: 'Hello'
+            text: 'Scores'
         },
 
         loading: false

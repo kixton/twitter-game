@@ -1,4 +1,4 @@
-app.controller('MenuCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFactory", "$location",
+app.controller('MenuCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFactory", "$location", 
   function($scope, GameFactory, ScoreFactory, UserFactory, $location) {
     $scope.startGame = GameFactory.startGame
     $scope.view = true
@@ -16,5 +16,6 @@ app.controller('MenuCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFactor
     };
     $scope.showGraph = function() {
       $location.path('/charts')
+      ChartCtrl.getScoreSeries();
     };
 }]);
