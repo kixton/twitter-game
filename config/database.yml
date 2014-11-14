@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: twitter_production
-  username: stocks
-  password: <%= ENV['STOCKS_DATABASE_PASSWORD'] %>
+  username: 
+  password: 
