@@ -18,3 +18,6 @@
 # Ignore application configuration
 /config/application.yml
 vendor/assets/components/
+
+# Ignore omniauth rb
+/config/initializers/omniauth.rb
