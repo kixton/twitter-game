@@ -1,4 +1,4 @@
-var app = angular.module('twitterApp', ['ui.router', 'templates', 'ngResource']);
+var app = angular.module('twitterApp', ['ui.router', 'templates', 'ngResource', 'highcharts-ng']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
   function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -11,6 +11,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     .state('menu', {
       url: '/menu',
       templateUrl: "menu.html",
+      controller: "MenuCtrl"
+    })
+    .state('charts', {
+      url: '/charts',
+      templateUrl: "chart.html",
       controller: "MenuCtrl"
     })
     .state('tweets', {

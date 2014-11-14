@@ -1,8 +1,8 @@
 {
+  "name": "twitter-game",
   "lib": {
     "name": "bower-rails generated lib assets",
-    "dependencies": {
-    }
+    "dependencies": {}
   },
   "vendor": {
     "name": "bower-rails generated vendor assets",
@@ -11,5 +11,8 @@
       "angular-resource": "latest",
       "angular-ui-router": "latest"
     }
+  },
+  "dependencies": {
+    "highcharts-ng": "~0.0.7"
   }
 }

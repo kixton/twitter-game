@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "highcharts-rails"
 gem 'foundation-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
@@ -44,6 +45,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'twitter'
+
+# gem 'highcharts-rails', '~> 4.0.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

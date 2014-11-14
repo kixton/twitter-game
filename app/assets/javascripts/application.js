@@ -17,6 +17,9 @@
 //= require angular-resource
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require highcharts
+//= require highcharts/highcharts-more
+//= require highcharts-ng
 //= require_tree ../templates/
 //= require_tree .
 
