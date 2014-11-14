@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/scores', to: "scores#index"
+  get '/scores/chart', to: "scores#chart_scores"
 
   root 'home#index'
   

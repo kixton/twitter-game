@@ -1,5 +1,25 @@
 app.controller('ChartCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFactory", "$location",
   function($scope, GameFactory, ScoreFactory, UserFactory, $location) {
+
+    $scope.backToMenu = function() {
+      $location.path("/menu")
+    };
+    
+    $scope.chartConfig = {
+        options: {
+            chart: {
+                type: 'bar'
+            }
+        },
+        series: [{
+            data: ScoreFactory.getScoreSeries
+        }],
+        title: {
+            text: 'Scores'
+        },
+
+        loading: false
+    }
     // $scope.addPoints = function () {
     //     var seriesArray = $scope.chartConfig.series
     //     var rndIdx = Math.floor(Math.random() * seriesArray.length);
@@ -34,28 +54,16 @@ app.controller('ChartCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFacto
     // $scope.toggleLoading = function () {
     //     this.chartConfig.loading = !this.chartConfig.loading
     // };
-    $scope.getScoreSeries = function() {
-      ScoreFactory.allScores.query().$promise.then(function(data) {
-        $scope.scores = data
-        _.map(this.scores, function(value, key){ 
-            $scope.chartConfig.series.data.push(value)
-          });
-      });
-    };
 
-    $scope.chartConfig = {
-        options: {
-            chart: {
-                type: 'bar'
-            }
-        },
-        series: [{
-            data: [10, 15, 12, 8, 7]
-        }],
-        title: {
-            text: 'Scores'
-        },
+    // $scope.getScoreSeries = function() {
+    //   ScoreFactory.allScores.query().$promise.then(function(data) {
+    //     $scope.scores = data
+    //     _.map(this.scores, function(value, key){ 
+    //       $scope.chartConfig.series[0].push({
+    //         data: value
+    //       })
+    //     });
+    //   });
+    // };
 
-        loading: false
-    }
   }]);
