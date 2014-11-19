@@ -40,6 +40,9 @@ button {
   &:hover {
     background: #0d88e5;
   }
+  &.large {
+    min-width: 200px;
+  }
   &.login,
   &.logout {
     font-size: .8em;
@@ -185,6 +188,17 @@ button {
     left: -9px;
     top: 10px;
   }
+}
+
+.correct-tweet {
+  .embedded-tweet {
+    width: 335px;
+    margin: 0 auto;
+  }
+}
+
+.game-score {
+  text-align: center;
 }
 
 @media only screen and (max-width: 35em) {

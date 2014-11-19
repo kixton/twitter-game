@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     @embed_bank = []
     @friends[:users].each do |friend|
       if friend[:status] != nil
-        @tweet_bank << {:name => friend[:screen_name], :last_tweet => friend[:status][:text], :last_tweet_id => friend[:status][:id_str]}
+        @tweet_bank << {:name => friend[:screen_name], :last_tweet => friend[:status][:text], :last_tweet_id => friend[:status][:id_str], :created_at => friend[:status][:created_at], :retweet_count => friend[:status][:retweet_count], :favorite_count => friend[:status][:favorite_count]}
       end
     end
     @tweet_bank.each do |tweet|

@@ -2,23 +2,26 @@
   <div class="row">
     <div class="large-8 large-offset-2 columns">
       <div class="panel">
-        <h3>Welcome {{user.first_name}}</h3>
-        <a ng-click="startGame()" class="button large">Start Game</a>
-        <button ng-click="showHighScore()">Show High-Score</button>
+        <a ng-click="startGame()" class="button large">Start Game</a><br>
+        <!-- <a ng-click="showHighScore()" class="button large">Leaderboard</a> -->
       </div>
     </div>
   </div>
 </div>
 
 <div ng-hide='view'>
-  <div class="row">
+  <div class='row'>
+    <button ng-click='showMenu()' class="logout">Back</button><br>
+    <button ng-click='showGraph()'>Graph</button>
+  </div>
+  <div class="row leaderboard">
     <div class="large-6 columns">
-      <h3>Top 10 High-Scores All Users</h3>
+      <h3>High Scores (All Users)</h3>
       <table>
         <thead>
           <tr>
-            <th>User Name</th>
-            <th>High Score</th>
+            <th>Username</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>
@@ -30,12 +33,12 @@
       </table>
     </div>
     <div class="large-6 columns">
-      <h3>Top 10 High-Scores {{currentUser.full_name}}</h3>
+      <h3>High Scores ({{currentUser.full_name}})</h3>
       <table>
         <thead>
           <tr>
-            <th>User Name</th>
-            <th>High Score</th>
+            <th>Username</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>
@@ -47,9 +50,5 @@
       </table>
     </div>
   </div>  
-  <div class='row'>
-    <button ng-click='showMenu()'>Back</button>
-    <button ng-click='showGraph()'>Show Graph</button>
-  </div>
 </div>
     
