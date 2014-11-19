@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
       full_name: omniauth_params["info"]["name"],
       image_url: omniauth_params["info"]["image"],
       twitter_uid: omniauth_params["uid"],
-      guest: false
+      guest: false,
+      oauth_token: omniauth_params["extra"]["access_token"].params[:oauth_token],
+      oauth_token_secret: omniauth_params["extra"]["access_token"].params[:oauth_token_secret]
     )
   end
 
