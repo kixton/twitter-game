@@ -2,17 +2,25 @@ class HomeController < ApplicationController
   def index
   end
 
-  def make_twitter_client
+  def get_info
+    @consumer_key = Rails.application.secrets.twitter_api_key
+    @consumer_secret = Rails.application.secrets.twitter_api_secret
+    @access_token = Rails.application.secrets.twitter_access_token
+    @access_secret = Rails.application.secrets.twitter_access_token_secret
+  end
+
+  def make_twitter_client(ck, cs, at, as)
     Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["TWITTER_API_KEY"]      # "YOUR_CONSUMER_KEY"
-      config.consumer_secret     = ENV["TWITTER_API_SECRET"]   # "YOUR_CONSUMER_SECRET"
-      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-      config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
+      config.consumer_key        = ck      # "YOUR_CONSUMER_KEY"
+      config.consumer_secret     = cs   # "YOUR_CONSUMER_SECRET"
+      config.access_token        = at
+      config.access_token_secret = as
     end
   end
 
   def tweets
-    @twitter_client = self.make_twitter_client
+    get_info
+    @twitter_client = self.make_twitter_client(@consumer_key, @consumer_secret, @access_token, @access_secret)
     @friends = @twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=20&user_id=#{current_user.twitter_uid}")
     @tweet_bank = []
     @embed_bank = []
@@ -31,7 +39,7 @@ class HomeController < ApplicationController
   end
 
   def embed(ids_array)
-    @twitter_client = self.make_twitter_client
+    @twitter_client = self.make_twitter_client(@consumer_key, @consumer_secret, @access_token, @access_secret)
     @embeddable = [] 
     ids_array.each do |id|
       @embeddable << @twitter_client.get('https://api.twitter.com/1.1/statuses/oembed.json?align=left&id='+id)
