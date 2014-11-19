@@ -4,10 +4,10 @@ class HomeController < ApplicationController
 
   def make_twitter_client
     Twitter::REST::Client.new do |config|
-      config.consumer_key        = Rails.application.secrets.twitter_api_key      # "YOUR_CONSUMER_KEY"
-      config.consumer_secret     = Rails.application.secrets.twitter_api_secret   # "YOUR_CONSUMER_SECRET"
-      config.access_token        = Rails.application.secrets.twitter_access_token
-      config.access_token_secret = Rails.application.secrets.twitter_access_token_secret
+      config.consumer_key        = '1eflVHwPlh9xu29TdPbSPZqDS'      # "YOUR_CONSUMER_KEY"
+      config.consumer_secret     = 'tjr5yp6gC7OedapbAnEkPNfxjsS4tgSE73A80geF7Yd3hjelvt'   # "YOUR_CONSUMER_SECRET"
+      config.access_token        = '52472525-IlyxsbWLVipwsrwj27gJm0hT16e1stK78GcEMwDDg'
+      config.access_token_secret = '01Dw71h1lWpu05CGrbej9xo4XRZiek9D44DyOytsO8e5T'
     end
   end
 
