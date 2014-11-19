@@ -27,9 +27,16 @@ app.controller('TweetCtrl', ['$scope', '$location', '$sce', 'UserFactory', 'Twee
         ($scope.tweets).splice(0,4);
         if ($scope.tweets.length === 0) {
           $scope.showScore = false;
+        } else {
+          if ($scope.tweets.length < 4) {
+            $scope.questionsRemaining = $scope.tweets.length;
+            $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * $scope.questionsRemaining)];
+            $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
+          } else {
+            $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
+            $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
+          }
         }
-        $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * 4)];
-        $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
     };
     $scope.startGame = function() {
       $scope.correctAnswers = 0;

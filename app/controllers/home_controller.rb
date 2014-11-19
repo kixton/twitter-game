@@ -17,8 +17,15 @@ class HomeController < ApplicationController
     @tweet_bank = []
     @embed_bank = []
     @friends[:users].each do |friend|
-      @tweet_bank << {:name => friend[:screen_name], :last_tweet => friend[:status][:text], :last_tweet_id => friend[:status][:id_str]}
-    end 
+      if friend[:status] != nil
+        @tweet_bank << {:name => friend[:screen_name], :last_tweet => friend[:status][:text], :last_tweet_id => friend[:status][:id_str]}
+      end
+    end
+    @tweet_bank.each do |tweet|
+      if tweet[:last_tweet].include?('&amp;')
+        tweet[:last_tweet].gsub!('&amp;', '&')
+      end
+    end
     @user_tweets = @tweet_bank.shuffle
     @user_tweets.each do |tweet|
       @embed_bank << tweet[:last_tweet_id]
