@@ -5,7 +5,6 @@ app.factory('ScoreFactory', ['$resource', function($resource) {
     var scoreData = data
     return scoreData
   });
-  
   return {
     allScores: scoreRsc,
     getScoreSeries: test
