@@ -19,27 +19,26 @@
         </div>
       </div>
 
-    <div class="answers-container">
-      <button class="choices" ng-class="{'correct' : theAnswer === tweet}" ng-repeat="tweet in tweets | limitTo:4" ng-click="checkAnswer(tweet, $event)">
-        @{{tweet.name}}
-      </button>
+      <div class="answers-container">
+        <button class="choices" ng-class="{'correct' : theAnswer === tweet}" ng-repeat="tweet in tweets | limitTo:4" ng-click="checkAnswer(tweet, $event)">
+          @{{tweet.name}}
+        </button>
 
-
-    <div class="row">
-      <div ng-show='showCorrectAnswer'>
         <div class="row">
-          <div ng-bind-html="tweetToEmbed">
+          <div ng-show='showCorrectAnswer'>
+            <div class="row">
+              <div ng-bind-html="tweetToEmbed"></div>
+              <button ng-click="nextQuestion()">Next Question</button>
+            </div>
           </div>
-          <button ng-click="nextQuestion()">Next Question</button>
         </div>
       </div>
-    </div>
-    </div>
 
-  </div>
-</div>
-    <div ng-hide="showScore">
-      <p>Your score is: {{correctAnswers}} ({{correctAnswers/5*100}}%)</p>
-      <button ng-click="startGame()">New Game</button>
     </div>
+  </div>
+
+  <div ng-hide="showScore">
+    <p>Your score is: {{correctAnswers}} ({{correctAnswers/5*100}}%)</p>
+    <button ng-click="startGame()">New Game</button>
+  </div>
 </div>

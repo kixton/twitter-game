@@ -9,6 +9,5 @@ app.factory('ScoreFactory', ['$resource', function($resource) {
   return {
     allScores: scoreRsc,
     getScoreSeries: test
-    
   };
 }]);

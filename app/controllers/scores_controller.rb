@@ -14,7 +14,6 @@ class ScoresController < ApplicationController
   end
 
   def chart_scores
-    # binding.pry
     @user = User.find_by(twitter_uid: current_user.twitter_uid)
     @scores = Score.where(user: @user.id)
 
