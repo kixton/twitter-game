@@ -1,4 +1,5 @@
 This application was created with Ruby on Rails and AngularJS. It makes use of the Twitter API.
+
 **Please note that the game play takes a few minutes as we make a call to the Twitter API for data based on people you follow. We are working to optimize this feature.**
 
 MVP Application Features:
