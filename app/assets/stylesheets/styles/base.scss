@@ -80,6 +80,23 @@ button {
   text-align: center;
 }
 
+.team-container {
+  div {
+    margin: 20px 0 50px 0;
+  }
+  img {
+    width: 180px;
+    border-radius: 100%;
+  }
+  h3 {
+    margin-top: 10px;
+  }
+
+  a {
+    // font-size: 16px;
+  }
+}
+
 .tweet-container {
   text-align: left;
   display: inline-block;

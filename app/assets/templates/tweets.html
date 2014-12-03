@@ -1,6 +1,5 @@
 <div class="large-8 large-offset-2 columns">
   <div ng-show="showScore">
-
     <div class="row correct-tweet">
       <div ng-show='showCorrectAnswer'>
         <button ng-click="nextQuestion()" class="logout">Next Question</button><br>
@@ -10,8 +9,10 @@
     </div>
 
     <div class="row">
+      <img src="http://jimpunk.net/Loading/wp-content/uploads/loading34.gif" alt="loading" ng-hide="displayedTweet"><br>
       <div class="tweet-container" ng-hide='showCorrectAnswer'>
-        <div class="tweet-header">
+      <center><h5 ng-hide="displayedTweet" class="wait">Please wait a moment as we query for tweets!</h5></center>
+        <div class="tweet-header" ng-hide="!displayedTweet">
           <img class="anon-avatar" src="http://www.mediabistro.com/alltwitter/files/2010/12/palkoo-twitter-avatar.png">
           <div class="tweet-author">
             <span class="author-name">Who tweeted that?</span>
@@ -22,7 +23,7 @@
           <p class="quote">{{ displayedTweet.last_tweet }}</p>
           <p class="time-date">{{ displayedTweet.created_at }}</p>
         </div>
-        <div class="tweet-footer">
+        <div class="tweet-footer" ng-hide="!displayedTweet">
           <span class="retweets"><b>{{ displayedTweet.retweet_count }}</b> RETWEETS</span>
           <span class="favorites"><b>{{ displayedTweet.favorite_count }}</b> FAVORITES</span>
         </div>
