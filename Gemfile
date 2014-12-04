@@ -4,7 +4,7 @@ gem "highcharts-rails"
 gem 'foundation-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
-gem 'font-awesome-sass', '~> 4.2.0'
+gem 'font-awesome-rails'
 gem 'underscore-rails'
 
 gem 'rails_12factor', group: :production
