@@ -4,8 +4,6 @@
 
 This application was created with **Ruby on Rails, AngularJS, HTML, SASS**. It makes use of the **Twitter API**.
 
-**Please note that the game play takes a few minutes as we make a call to the Twitter API. We are working to optimize this feature.**
-
 Primary User Stories:
 * User can securely login via Twitter
 * User can start a game
