@@ -45,9 +45,10 @@ class HomeController < ApplicationController
     return embeddable
   end
 
-  # def tweeted
-  #   twitter_client = self.make_twitter_client
-  #   twitter_client.update("I'm playing Tweeter Quiz! https://tweeterquiz.herokuapp.com/")
-  # end
+  def tweeted
+    twitter_client = self.make_twitter_client
+    twitter_client.update("I'm playing Tweeter Quiz! https://tweeterquiz.herokuapp.com/")
+    render json: {}
+  end
 
 end

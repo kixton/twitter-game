@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/tweets', to: "home#tweets"
 
-  # get '/tweeted', to: "home#tweeted"
+  get '/tweeted', to: "home#tweeted"
 
   get '/embed', to: "home#embed"
   
