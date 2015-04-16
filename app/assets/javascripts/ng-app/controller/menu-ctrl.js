@@ -15,6 +15,9 @@ app.controller('MenuCtrl', ['$scope', "GameFactory", "ScoreFactory", "UserFactor
       $scope.view = true;
     };
     $scope.showGraph = function() {
-      $location.path('/charts')
+      $location.path('/charts');
     };
+    // $scope.tweet = function() {
+      // PostFactory.postTweet;
+    // };
 }]);

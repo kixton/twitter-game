@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/tweets', to: "home#tweets"
 
+  # get '/tweeted', to: "home#tweeted"
+
   get '/embed', to: "home#embed"
   
   scope :api, defaults: {format: :json} do

@@ -12,8 +12,8 @@ class HomeController < ApplicationController
   end
 
   def tweets
-    twitter_client = self.make_twitter_client
-    friends = twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=20&user_id=#{current_user.twitter_uid}")
+    @twitter_client = self.make_twitter_client
+    friends = @twitter_client.get("https://api.twitter.com/1.1/friends/list.json?count=20&user_id=#{current_user.twitter_uid}")
     tweet_bank = []
     embed_bank = []
     friends[:users].each do |friend|
@@ -38,12 +38,16 @@ class HomeController < ApplicationController
   end
 
   def embed(ids_array)
-    twitter_client = self.make_twitter_client
     embeddable = [] 
     ids_array.each do |id|
-      embeddable << twitter_client.get('https://api.twitter.com/1.1/statuses/oembed.json?align=left&id='+id)
+      embeddable << @twitter_client.get('https://api.twitter.com/1.1/statuses/oembed.json?align=left&id='+id)
     end
     return embeddable
   end
+
+  # def tweeted
+  #   twitter_client = self.make_twitter_client
+  #   twitter_client.update("I'm playing Tweeter Quiz! https://tweeterquiz.herokuapp.com/")
+  # end
 
 end
