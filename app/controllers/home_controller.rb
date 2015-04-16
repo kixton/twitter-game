@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     embed_bank = []
     friends[:users].each do |friend|
       if friend[:status] != nil
-        tweet_bank << {:name => friend[:screen_name], :last_tweet => friend[:status][:text], :last_tweet_id => friend[:status][:id_str], :created_at => friend[:status][:created_at], :retweet_count => friend[:status][:retweet_count], :favorite_count => friend[:status][:favorite_count]}
+        tweet_bank.push({:name => friend[:screen_name], :last_tweet => friend[:status][:text], :last_tweet_id => friend[:status][:id_str], :created_at => friend[:status][:created_at], :retweet_count => friend[:status][:retweet_count], :favorite_count => friend[:status][:favorite_count]})
       end
     end
     tweet_bank.each do |tweet|
@@ -28,7 +28,7 @@ class HomeController < ApplicationController
     end
     user_tweets = tweet_bank.shuffle
     user_tweets.each do |tweet|
-      embed_bank << tweet[:last_tweet_id]
+      embed_bank.push(tweet[:last_tweet_id])
     end
     embeddable_array = embed(embed_bank)
     user_tweets.each_with_index do |value, index|
@@ -40,7 +40,7 @@ class HomeController < ApplicationController
   def embed(ids_array)
     embeddable = [] 
     ids_array.each do |id|
-      embeddable << @twitter_client.get('https://api.twitter.com/1.1/statuses/oembed.json?align=left&id='+id)
+      embeddable.push(@twitter_client.get('https://api.twitter.com/1.1/statuses/oembed.json?align=left&id='+id))
     end
     return embeddable
   end
