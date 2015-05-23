@@ -1,12 +1,16 @@
-app.controller('TweetCtrl', ['$scope', '$location', '$sce', 'UserFactory', 'TweetFactory', 'GameFactory', 'ClassFactory',
-  function($scope, $location, $sce, UserFactory, TweetFactory, GameFactory, ClassFactory) {
+app.controller('TweetCtrl', ['$scope', '$location', '$sce', 'UserFactory', 'TweetFactory', 'GameFactory', 'ClassFactory', 'ScoreFactory',
+  function($scope, $location, $sce, UserFactory, TweetFactory, GameFactory, ClassFactory, ScoreFactory) {
     $scope.showCorrectAnswer = false;
     $scope.showScore = true;
+    $scope.user = UserFactory.currentUser
     $scope.correctAnswers = 0;
     var handleResults = function(data){
       $scope.displayedTweet = data[Math.floor(Math.random() * 4)];
       $scope.tweets = data;
       $scope.tweetToEmbed = $sce.trustAsHtml($scope.displayedTweet.embeddable_tweet);
+    }
+    $scope.saveScore = function() {
+      ScoreFactory.postScore({score: {scores: $scope.correctAnswers, user_id: UserFactory.current_user.id}})
     }
     TweetFactory.getResults.$promise.then(handleResults);
     $scope.checkAnswer = function(answerSelected, clickEvent) {
@@ -22,6 +26,10 @@ app.controller('TweetCtrl', ['$scope', '$location', '$sce', 'UserFactory', 'Twee
       $scope.showCorrectAnswer = false;
       ($scope.tweets).splice(0,4);
       if ($scope.tweets.length === 0) {
+        console.log($scope.correctAnswers);
+        // console.log(UserFactory.current_user.id);
+        console.log($scope.user.id);
+        ScoreFactory.postScore({score: {scores: $scope.correctAnswers, user_id: $scope.user.id}})
         $scope.showScore = false;
       } else if ($scope.tweets.length < 4) {
         $scope.displayedTweet = $scope.tweets[Math.floor(Math.random() * $scope.tweets.length)];

@@ -7,6 +7,12 @@ app.factory('ScoreFactory', ['$resource', function($resource) {
   });
   return {
     allScores: scoreRsc,
-    getScoreSeries: test
+    getScoreSeries: test,
+    postScore: function(score) {
+      var newScore = new scoreRsc(score);
+      newScore.$save(function(data) {
+        console.log("new score saved");
+      });
+    }
   };
 }]);
