@@ -26,9 +26,6 @@ app.controller('TweetCtrl', ['$scope', '$location', '$sce', 'UserFactory', 'Twee
       $scope.showCorrectAnswer = false;
       ($scope.tweets).splice(0,4);
       if ($scope.tweets.length === 0) {
-        console.log($scope.correctAnswers);
-        // console.log(UserFactory.current_user.id);
-        console.log($scope.user.id);
         ScoreFactory.postScore({score: {scores: $scope.correctAnswers, user_id: $scope.user.id}})
         $scope.showScore = false;
       } else if ($scope.tweets.length < 4) {
